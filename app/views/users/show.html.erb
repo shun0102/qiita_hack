@@ -1,8 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Qiitaに反映', update_qiita_user_path(@user) %>
-<br />
-<br />
+このURLをgithubのWebHookURLsに登録してください。
+<div class='url'>
+<%= update_qiita_user_url(@user) %>
+</div>
+
+
+
+<%= link_to 'Qiitaに反映', update_qiita_user_url(@user) %>
 
 <p>
   <b>Url name:</b>

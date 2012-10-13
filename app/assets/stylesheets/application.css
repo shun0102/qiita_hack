@@ -11,3 +11,14 @@
  *= require_self
  *= require_tree .
  */
+
+.url {
+	font-size:18px;
+	border-radius: 10px;
+	border: 2px solid #696969;     /* 枠線の装飾 */
+	background-color: #f0f0f0;   /* 背景色 */
+	padding: 10px;
+
+	margin-top:10px;
+	margin-bottom:50px;
+}
