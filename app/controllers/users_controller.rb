@@ -82,15 +82,18 @@ class UsersController < ApplicationController
   end
 
   def update_qiita
-    if request.post?
-      @payload = JSON.parse(params[:payload])
-      p @payload
-    else
-      @payload = "get"
-    end
     @user = User.find(params[:id])
     @user.auth_qiita
-    @user.pull_or_clone_from_github
+
+    if request.post?
+      @payload = JSON.parse(params[:payload])
+      @github_repo = @payload["repository"]["url"]
+      @user.pull_or_clone_from_github(@github_repo)
+    else
+      @payload = "get"
+      @user.pull_or_clone_from_github(@github_repo)
+    end
+
     @user.publish_qiita
   end
 

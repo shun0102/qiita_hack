@@ -10,7 +10,6 @@ class User < ActiveRecord::Base
 
   def auth_qiita
     @qiita = Qiita.new({ :token => self.token})
-    @repo="git://github.com/#{self.url_name}/#{self.repo_name}"
     @basedir="#{Rails.public_path}/users/#{self.url_name}"
   end
 
@@ -21,13 +20,15 @@ class User < ActiveRecord::Base
     @qiita.post_item item
   end
 
-  def pull_or_clone_from_github
+  def pull_or_clone_from_github(repo)
+    # @repo="git://github.com/#{self.url_name}/#{self.repo_name}"
     if self.new_flag
       `mkdir -p #{@basedir}`
-      `git clone #{@repo} #{@basedir}`
+      `git clone #{repo} #{@basedir}`
       self.new_flag = false
       self.save
     else
+      `cd #{@basedir}; git pull`
     end
   end
 
