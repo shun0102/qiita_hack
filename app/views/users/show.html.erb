@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'Qiitaに反映', update_qiita_user_path(@user) %>
+<br />
+<br />
+
+<p>
+  <b>Url name:</b>
+  <%= @user.url_name %>
+</p>
+
+<p>
+  <b>Repo name:</b>
+  <%= @user.repo_name %>
+</p>
+
+<p>
+  <b>token:</b>
+  <%= @user.token[0..3] %>...
+</p>
+
+<p>
+  <b>New flag:</b>
+  <%= @user.new_flag %>
+</p>
+
+<p>
+  <b>Qiita update at:</b>
+  <%= @user.qiita_update_at %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

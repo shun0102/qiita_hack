@@ -11,6 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20121013055111) do
+
+  create_table "users", :force => true do |t|
+    t.string   "url_name"
+    t.string   "token"
+    t.string   "repo_name"
+    t.datetime "qiita_update_at"
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+    t.boolean  "new_flag",        :default => true
+  end
 
 end

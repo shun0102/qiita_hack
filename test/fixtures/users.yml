@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  url_name: MyString
+  token: MyString
+  qiita_update_at: 2012-10-13 14:12:04
+
+two:
+  url_name: MyString
+  token: MyString
+  qiita_update_at: 2012-10-13 14:12:04
